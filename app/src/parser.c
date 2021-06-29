@@ -128,19 +128,21 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
 
     uint8_t numItems;
     CHECK_PARSER_ERR(parser_getNumItems(ctx, &numItems))
-    CHECK_APP_CANARY()
 
     if (displayIdx < 0 || displayIdx >= numItems) {
         return parser_no_data;
     }
 
     parser_error_t err = parser_ok;
+
     if (displayIdx == FIELD_METHOD) {
-        snprintf(outKey, outKeyLen, "%s", _getMethod_ModuleName(ctx->tx_obj->transactionVersion, ctx->tx_obj->callIndex.moduleIdx));
-        snprintf(outVal, outValLen, "%s", _getMethod_Name(ctx->tx_obj->transactionVersion,
-                                                                  ctx->tx_obj->callIndex.moduleIdx,
-                                                                  ctx->tx_obj->callIndex.idx));
-        return err;
+        const char* moduleName = NULL;
+        CHECK_PARSER_ERR(_getMethod_ModuleName(ctx->tx_obj->transactionVersion, ctx->tx_obj->callIndex.moduleIdx, moduleName));
+        const char* methodName = NULL;
+        CHECK_PARSER_ERR(_getMethod_Name(ctx->tx_obj->transactionVersion, ctx->tx_obj->callIndex.moduleIdx, ctx->tx_obj->callIndex.idx, methodName));
+        snprintf(outKey, outKeyLen, "%s", moduleName);
+        snprintf(outVal, outValLen, "%s", methodName);
+        return parser_ok;
     }
 
     // VARIABLE ARGUMENTS
@@ -162,18 +164,19 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
     }
 
     if (argIdx < methodArgCount) {
-        snprintf(outKey, outKeyLen, "%s",
-                 _getMethod_ItemName(ctx->tx_obj->transactionVersion,
-                                     ctx->tx_obj->callIndex.moduleIdx,
-                                     ctx->tx_obj->callIndex.idx,
-                                     argIdx));
+        const char* itemName = NULL;
+        CHECK_PARSER_ERR(_getMethod_ItemName(ctx->tx_obj->transactionVersion,
+                                             ctx->tx_obj->callIndex.moduleIdx,
+                                             ctx->tx_obj->callIndex.idx,
+                                             argIdx, itemName));
+        snprintf(outKey, outKeyLen, "%s", itemName);
 
-        err = _getMethod_ItemValue(ctx->tx_obj->transactionVersion,
-                                   &ctx->tx_obj->method,
-                                   ctx->tx_obj->callIndex.moduleIdx, ctx->tx_obj->callIndex.idx, argIdx,
-                                   outVal, outValLen,
-                                   pageIdx, pageCount);
-        return err;
+        CHECK_PARSER_ERR(_getMethod_ItemValue(ctx->tx_obj->transactionVersion,
+                                              &ctx->tx_obj->method,
+                                              ctx->tx_obj->callIndex.moduleIdx, ctx->tx_obj->callIndex.idx, argIdx,
+                                              outVal, outValLen,
+                                              pageIdx, pageCount));
+        return parser_ok;
     } else {
         // CONTINUE WITH FIXED ARGUMENTS
         displayIdx -= methodArgCount;
@@ -182,14 +185,13 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
                 if(parser_show_expert_fields()){
                     snprintf(outKey, outKeyLen, "Chain");
                     snprintf(outVal, outValLen, COIN_NAME);
-                    return err;
+                    return parser_ok;
                 }
-            }else {
+            } else {
                 snprintf(outKey, outKeyLen, "Genesis Hash");
-                _toStringHash(&ctx->tx_obj->genesisHash,
+                return _toStringHash(&ctx->tx_obj->genesisHash,
                               outVal, outValLen,
                               pageIdx, pageCount);
-                return err;
             }
         }
 
@@ -210,10 +212,9 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
 
         if( displayIdx == FIELD_TIP && parser_show_tip(ctx)) {
             snprintf(outKey, outKeyLen, "Tip");
-            err = _toStringCompactBalance(&ctx->tx_obj->tip,
-                                    outVal, outValLen,
-                                    pageIdx, pageCount);
-            if( err != parser_ok ) return err;
+            CHECK_PARSER_ERR(_toStringCompactBalance(&ctx->tx_obj->tip,
+                                                     outVal, outValLen,
+                                                     pageIdx, pageCount));
             number_inplace_trimming(outVal, 1);
             return err;
         }
@@ -222,6 +223,7 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
             displayIdx++;
         }
 
+        // TODO: Usages of `uint64_to_str` must be checked for errors
         if( displayIdx == FIELD_ERA_PHASE && parser_show_expert_fields() ) {
             snprintf(outKey, outKeyLen, "Era Phase");
             uint64_to_str(outVal, outValLen, ctx->tx_obj->era.phase);
@@ -244,10 +246,9 @@ parser_error_t parser_getItem(const parser_context_t *ctx,
 
         if( displayIdx == FIELD_BLOCK_HASH && parser_show_expert_fields() ) {
             snprintf(outKey, outKeyLen, "Block");
-            _toStringHash(&ctx->tx_obj->blockHash,
+            return _toStringHash(&ctx->tx_obj->blockHash,
                           outVal, outValLen,
                           pageIdx, pageCount);
-            return err;
         }
 
         return parser_no_data;

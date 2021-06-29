@@ -599,7 +599,9 @@ parser_error_t _toStringCall(
     zb_check_canary();
 
     if (pageIdx == 0) {
-        snprintf(outValue, outValueLen, "%s", _getMethod_Name(*v->_txVerPtr, v->callIndex.moduleIdx, v->callIndex.idx));
+        const char* methodName = NULL;
+        CHECK_ERROR(_getMethod_Name(*v->_txVerPtr, v->callIndex.moduleIdx, v->callIndex.idx, methodName));
+        snprintf(outValue, outValueLen, "%s", methodName);
         return parser_ok;
     }
 
@@ -611,13 +613,13 @@ parser_error_t _toStringCall(
 
     for (uint8_t i = 0; i < callNumItems; i++) {
         uint8_t itemPages = 0;
-        _getMethod_ItemValue(*v->_txVerPtr, &_txObj.method, v->callIndex.moduleIdx, v->callIndex.idx, i,
-            outValue, outValueLen, 0, &itemPages);
+        CHECK_ERROR(_getMethod_ItemValue(*v->_txVerPtr, &_txObj.method, v->callIndex.moduleIdx, v->callIndex.idx, i,
+                                         outValue, outValueLen, 0, &itemPages));
 
         if (pageIdx < itemPages) {
             uint8_t tmp;
-            _getMethod_ItemValue(*v->_txVerPtr, &_txObj.method, v->callIndex.moduleIdx, v->callIndex.idx, i,
-                outValue, outValueLen, pageIdx, &tmp);
+            CHECK_ERROR(_getMethod_ItemValue(*v->_txVerPtr, &_txObj.method, v->callIndex.moduleIdx, v->callIndex.idx, i,
+                                             outValue, outValueLen, pageIdx, &tmp));
             return parser_ok;
         }
 

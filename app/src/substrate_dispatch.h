@@ -40,17 +40,23 @@ extern "C" {
         }                                          \
     }
 
-#define SET_AND_BREAK(PTR, VAL)           \
+#define SET_AND_BREAK(PTR, VAL)                    \
     {                                              \
         *PTR = VAL;                                \
-        break;                          \
+        break;                                     \
+    }
+
+#define SET_POINTER_AND_BREAK(PTR1, PTR2)          \
+    {                                              \
+        PTR1 = PTR2;                               \
+        break;                                     \
     }
 
 parser_error_t _readMethod(parser_context_t* c, uint8_t moduleIdx, uint8_t callIdx, pd_Method_t* method);
 parser_error_t _getMethod_NumItems(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t* numItems);
-const char* _getMethod_ModuleName(uint32_t transactionVersion, uint8_t moduleIdx);
-const char* _getMethod_Name(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx);
-const char* _getMethod_ItemName(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx);
+parser_error_t _getMethod_ModuleName(uint32_t transactionVersion, uint8_t moduleIdx, const char* moduleName);
+parser_error_t _getMethod_Name(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, const char* methodName);
+parser_error_t _getMethod_ItemName(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx, const char* itemName);
 
 parser_error_t _getMethod_ItemValue(
     uint32_t transactionVersion,

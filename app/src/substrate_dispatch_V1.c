@@ -1557,360 +1557,360 @@ parser_error_t _readMethod_V1(
 /////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////
 
-const char* _getMethod_ModuleName_V1(uint8_t moduleIdx)
+parser_error_t _getMethod_ModuleName_V1(uint8_t moduleIdx, const char* moduleName)
 {
     switch (moduleIdx) {
     case 2:
-        return STR_MO_BALANCES;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_BALANCES);
     case 30:
-        return STR_MO_STAKING;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_STAKING);
     case 3:
-        return STR_MO_SESSION;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_SESSION);
     case 8:
-        return STR_MO_UTILITY;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_UTILITY);
 #ifdef SUBSTRATE_PARSER_FULL
     case 0:
-        return STR_MO_SYSTEM;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_SYSTEM);
     case 21:
-        return STR_MO_SCHEDULER;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_SCHEDULER);
     case 29:
-        return STR_MO_BABE;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_BABE);
     case 1:
-        return STR_MO_TIMESTAMP;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_TIMESTAMP);
     case 6:
-        return STR_MO_AUTHORSHIP;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_AUTHORSHIP);
     case 32:
-        return STR_MO_OFFENCES;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_OFFENCES);
     case 5:
-        return STR_MO_GRANDPA;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_GRANDPA);
     case 28:
-        return STR_MO_IMONLINE;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_IMONLINE);
     case 26:
-        return STR_MO_AUTHORITYDISCOVERY;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_AUTHORITYDISCOVERY);
     case 17:
-        return STR_MO_DEMOCRACY;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_DEMOCRACY);
     case 18:
-        return STR_MO_COUNCIL;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_COUNCIL);
     case 19:
-        return STR_MO_TECHNICALCOMMITTEE;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_TECHNICALCOMMITTEE);
     case 36:
-        return STR_MO_ELECTIONSPHRAGMEN;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_ELECTIONSPHRAGMEN);
     case 20:
-        return STR_MO_TECHNICALMEMBERSHIP;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_TECHNICALMEMBERSHIP);
     case 33:
-        return STR_MO_TREASURY;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_TREASURY);
     case 38:
-        return STR_MO_IDENTITY;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_IDENTITY);
     case 34:
-        return STR_MO_BOUNTIES;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_BOUNTIES);
     case 37:
-        return STR_MO_TIPS;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_TIPS);
     case 31:
-        return STR_MO_ELECTIONPROVIDERMULTIPHASE;
+        SET_POINTER_AND_BREAK(moduleName, STR_MO_ELECTIONPROVIDERMULTIPHASE);
 #endif
     default:
-        return NULL;
+        return parser_unexpected_module;
     }
 
-    return NULL;
+    return parser_ok;
 }
 
-const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx)
+parser_error_t _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx, const char* methodName)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
     switch (callPrivIdx) {
     case 512: /* module 2 call 0 */
-        return STR_ME_TRANSFER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_TRANSFER);
     case 515: /* module 2 call 3 */
-        return STR_ME_TRANSFER_KEEP_ALIVE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_TRANSFER_KEEP_ALIVE);
     case 7680: /* module 30 call 0 */
-        return STR_ME_BOND;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_BOND);
     case 7681: /* module 30 call 1 */
-        return STR_ME_BOND_EXTRA;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_BOND_EXTRA);
     case 7682: /* module 30 call 2 */
-        return STR_ME_UNBOND;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_UNBOND);
     case 7683: /* module 30 call 3 */
-        return STR_ME_WITHDRAW_UNBONDED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_WITHDRAW_UNBONDED);
     case 7684: /* module 30 call 4 */
-        return STR_ME_VALIDATE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VALIDATE);
     case 7685: /* module 30 call 5 */
-        return STR_ME_NOMINATE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOMINATE);
     case 7686: /* module 30 call 6 */
-        return STR_ME_CHILL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CHILL);
     case 7687: /* module 30 call 7 */
-        return STR_ME_SET_PAYEE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_PAYEE);
     case 7698: /* module 30 call 18 */
-        return STR_ME_PAYOUT_STAKERS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PAYOUT_STAKERS);
     case 7699: /* module 30 call 19 */
-        return STR_ME_REBOND;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REBOND);
     case 768: /* module 3 call 0 */
-        return STR_ME_SET_KEYS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_KEYS);
     case 769: /* module 3 call 1 */
-        return STR_ME_PURGE_KEYS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PURGE_KEYS);
     case 2048: /* module 8 call 0 */
-        return STR_ME_BATCH;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_BATCH);
     case 2050: /* module 8 call 2 */
-        return STR_ME_BATCH_ALL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_BATCH_ALL);
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
-        return STR_ME_FILL_BLOCK;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FILL_BLOCK);
     case 1: /* module 0 call 1 */
-        return STR_ME_REMARK;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMARK);
     case 2: /* module 0 call 2 */
-        return STR_ME_SET_HEAP_PAGES;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_HEAP_PAGES);
     case 3: /* module 0 call 3 */
-        return STR_ME_SET_CODE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_CODE);
     case 4: /* module 0 call 4 */
-        return STR_ME_SET_CODE_WITHOUT_CHECKS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_CODE_WITHOUT_CHECKS);
     case 5: /* module 0 call 5 */
-        return STR_ME_SET_CHANGES_TRIE_CONFIG;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_CHANGES_TRIE_CONFIG);
     case 6: /* module 0 call 6 */
-        return STR_ME_SET_STORAGE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_STORAGE);
     case 7: /* module 0 call 7 */
-        return STR_ME_KILL_STORAGE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_KILL_STORAGE);
     case 8: /* module 0 call 8 */
-        return STR_ME_KILL_PREFIX;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_KILL_PREFIX);
     case 9: /* module 0 call 9 */
-        return STR_ME_REMARK_WITH_EVENT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMARK_WITH_EVENT);
     case 5376: /* module 21 call 0 */
-        return STR_ME_SCHEDULE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SCHEDULE);
     case 5377: /* module 21 call 1 */
-        return STR_ME_CANCEL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL);
     case 5378: /* module 21 call 2 */
-        return STR_ME_SCHEDULE_NAMED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SCHEDULE_NAMED);
     case 5379: /* module 21 call 3 */
-        return STR_ME_CANCEL_NAMED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_NAMED);
     case 5380: /* module 21 call 4 */
-        return STR_ME_SCHEDULE_AFTER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SCHEDULE_AFTER);
     case 5381: /* module 21 call 5 */
-        return STR_ME_SCHEDULE_NAMED_AFTER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SCHEDULE_NAMED_AFTER);
     case 7424: /* module 29 call 0 */
-        return STR_ME_REPORT_EQUIVOCATION;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REPORT_EQUIVOCATION);
     case 7425: /* module 29 call 1 */
-        return STR_ME_REPORT_EQUIVOCATION_UNSIGNED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REPORT_EQUIVOCATION_UNSIGNED);
     case 256: /* module 1 call 0 */
-        return STR_ME_SET;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET);
     case 513: /* module 2 call 1 */
-        return STR_ME_SET_BALANCE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_BALANCE);
     case 514: /* module 2 call 2 */
-        return STR_ME_FORCE_TRANSFER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FORCE_TRANSFER);
     case 1536: /* module 6 call 0 */
-        return STR_ME_SET_UNCLES;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_UNCLES);
     case 7688: /* module 30 call 8 */
-        return STR_ME_SET_CONTROLLER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_CONTROLLER);
     case 7689: /* module 30 call 9 */
-        return STR_ME_SET_VALIDATOR_COUNT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_VALIDATOR_COUNT);
     case 7690: /* module 30 call 10 */
-        return STR_ME_INCREASE_VALIDATOR_COUNT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_INCREASE_VALIDATOR_COUNT);
     case 7691: /* module 30 call 11 */
-        return STR_ME_SCALE_VALIDATOR_COUNT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SCALE_VALIDATOR_COUNT);
     case 7692: /* module 30 call 12 */
-        return STR_ME_FORCE_NO_ERAS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FORCE_NO_ERAS);
     case 7693: /* module 30 call 13 */
-        return STR_ME_FORCE_NEW_ERA;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FORCE_NEW_ERA);
     case 7694: /* module 30 call 14 */
-        return STR_ME_SET_INVULNERABLES;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_INVULNERABLES);
     case 7695: /* module 30 call 15 */
-        return STR_ME_FORCE_UNSTAKE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FORCE_UNSTAKE);
     case 7696: /* module 30 call 16 */
-        return STR_ME_FORCE_NEW_ERA_ALWAYS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FORCE_NEW_ERA_ALWAYS);
     case 7697: /* module 30 call 17 */
-        return STR_ME_CANCEL_DEFERRED_SLASH;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_DEFERRED_SLASH);
     case 7700: /* module 30 call 20 */
-        return STR_ME_SET_HISTORY_DEPTH;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_HISTORY_DEPTH);
     case 7701: /* module 30 call 21 */
-        return STR_ME_REAP_STASH;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REAP_STASH);
     case 7702: /* module 30 call 22 */
-        return STR_ME_SUBMIT_ELECTION_SOLUTION;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SUBMIT_ELECTION_SOLUTION);
     case 7703: /* module 30 call 23 */
-        return STR_ME_SUBMIT_ELECTION_SOLUTION_UNSIGNED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SUBMIT_ELECTION_SOLUTION_UNSIGNED);
     case 7704: /* module 30 call 24 */
-        return STR_ME_KICK;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_KICK);
     case 1280: /* module 5 call 0 */
-        return STR_ME_REPORT_EQUIVOCATION;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REPORT_EQUIVOCATION);
     case 1281: /* module 5 call 1 */
-        return STR_ME_REPORT_EQUIVOCATION_UNSIGNED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REPORT_EQUIVOCATION_UNSIGNED);
     case 1282: /* module 5 call 2 */
-        return STR_ME_NOTE_STALLED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOTE_STALLED);
     case 7168: /* module 28 call 0 */
-        return STR_ME_HEARTBEAT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_HEARTBEAT);
     case 4352: /* module 17 call 0 */
-        return STR_ME_PROPOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE);
     case 4353: /* module 17 call 1 */
-        return STR_ME_SECOND;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SECOND);
     case 4354: /* module 17 call 2 */
-        return STR_ME_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VOTE);
     case 4355: /* module 17 call 3 */
-        return STR_ME_EMERGENCY_CANCEL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EMERGENCY_CANCEL);
     case 4356: /* module 17 call 4 */
-        return STR_ME_EXTERNAL_PROPOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXTERNAL_PROPOSE);
     case 4357: /* module 17 call 5 */
-        return STR_ME_EXTERNAL_PROPOSE_MAJORITY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXTERNAL_PROPOSE_MAJORITY);
     case 4358: /* module 17 call 6 */
-        return STR_ME_EXTERNAL_PROPOSE_DEFAULT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXTERNAL_PROPOSE_DEFAULT);
     case 4359: /* module 17 call 7 */
-        return STR_ME_FAST_TRACK;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_FAST_TRACK);
     case 4360: /* module 17 call 8 */
-        return STR_ME_VETO_EXTERNAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VETO_EXTERNAL);
     case 4361: /* module 17 call 9 */
-        return STR_ME_CANCEL_REFERENDUM;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_REFERENDUM);
     case 4362: /* module 17 call 10 */
-        return STR_ME_CANCEL_QUEUED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_QUEUED);
     case 4363: /* module 17 call 11 */
-        return STR_ME_DELEGATE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_DELEGATE);
     case 4364: /* module 17 call 12 */
-        return STR_ME_UNDELEGATE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_UNDELEGATE);
     case 4365: /* module 17 call 13 */
-        return STR_ME_CLEAR_PUBLIC_PROPOSALS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLEAR_PUBLIC_PROPOSALS);
     case 4366: /* module 17 call 14 */
-        return STR_ME_NOTE_PREIMAGE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOTE_PREIMAGE);
     case 4367: /* module 17 call 15 */
-        return STR_ME_NOTE_PREIMAGE_OPERATIONAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOTE_PREIMAGE_OPERATIONAL);
     case 4368: /* module 17 call 16 */
-        return STR_ME_NOTE_IMMINENT_PREIMAGE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOTE_IMMINENT_PREIMAGE);
     case 4369: /* module 17 call 17 */
-        return STR_ME_NOTE_IMMINENT_PREIMAGE_OPERATIONAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_NOTE_IMMINENT_PREIMAGE_OPERATIONAL);
     case 4370: /* module 17 call 18 */
-        return STR_ME_REAP_PREIMAGE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REAP_PREIMAGE);
     case 4371: /* module 17 call 19 */
-        return STR_ME_UNLOCK;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_UNLOCK);
     case 4372: /* module 17 call 20 */
-        return STR_ME_REMOVE_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_VOTE);
     case 4373: /* module 17 call 21 */
-        return STR_ME_REMOVE_OTHER_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_OTHER_VOTE);
     case 4374: /* module 17 call 22 */
-        return STR_ME_ENACT_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_ENACT_PROPOSAL);
     case 4375: /* module 17 call 23 */
-        return STR_ME_BLACKLIST;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_BLACKLIST);
     case 4376: /* module 17 call 24 */
-        return STR_ME_CANCEL_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_PROPOSAL);
     case 4608: /* module 18 call 0 */
-        return STR_ME_SET_MEMBERS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_MEMBERS);
     case 4609: /* module 18 call 1 */
-        return STR_ME_EXECUTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXECUTE);
     case 4610: /* module 18 call 2 */
-        return STR_ME_PROPOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE);
     case 4611: /* module 18 call 3 */
-        return STR_ME_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VOTE);
     case 4612: /* module 18 call 4 */
-        return STR_ME_CLOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLOSE);
     case 4613: /* module 18 call 5 */
-        return STR_ME_DISAPPROVE_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_DISAPPROVE_PROPOSAL);
     case 4864: /* module 19 call 0 */
-        return STR_ME_SET_MEMBERS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_MEMBERS);
     case 4865: /* module 19 call 1 */
-        return STR_ME_EXECUTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXECUTE);
     case 4866: /* module 19 call 2 */
-        return STR_ME_PROPOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE);
     case 4867: /* module 19 call 3 */
-        return STR_ME_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VOTE);
     case 4868: /* module 19 call 4 */
-        return STR_ME_CLOSE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLOSE);
     case 4869: /* module 19 call 5 */
-        return STR_ME_DISAPPROVE_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_DISAPPROVE_PROPOSAL);
     case 9216: /* module 36 call 0 */
-        return STR_ME_VOTE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_VOTE);
     case 9217: /* module 36 call 1 */
-        return STR_ME_REMOVE_VOTER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_VOTER);
     case 9218: /* module 36 call 2 */
-        return STR_ME_SUBMIT_CANDIDACY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SUBMIT_CANDIDACY);
     case 9219: /* module 36 call 3 */
-        return STR_ME_RENOUNCE_CANDIDACY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_RENOUNCE_CANDIDACY);
     case 9220: /* module 36 call 4 */
-        return STR_ME_REMOVE_MEMBER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_MEMBER);
     case 9221: /* module 36 call 5 */
-        return STR_ME_CLEAN_DEFUNCT_VOTERS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLEAN_DEFUNCT_VOTERS);
     case 5120: /* module 20 call 0 */
-        return STR_ME_ADD_MEMBER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_ADD_MEMBER);
     case 5121: /* module 20 call 1 */
-        return STR_ME_REMOVE_MEMBER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_MEMBER);
     case 5122: /* module 20 call 2 */
-        return STR_ME_SWAP_MEMBER;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SWAP_MEMBER);
     case 5123: /* module 20 call 3 */
-        return STR_ME_RESET_MEMBERS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_RESET_MEMBERS);
     case 5124: /* module 20 call 4 */
-        return STR_ME_CHANGE_KEY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CHANGE_KEY);
     case 5125: /* module 20 call 5 */
-        return STR_ME_SET_PRIME;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_PRIME);
     case 5126: /* module 20 call 6 */
-        return STR_ME_CLEAR_PRIME;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLEAR_PRIME);
     case 8448: /* module 33 call 0 */
-        return STR_ME_PROPOSE_SPEND;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE_SPEND);
     case 8449: /* module 33 call 1 */
-        return STR_ME_REJECT_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REJECT_PROPOSAL);
     case 8450: /* module 33 call 2 */
-        return STR_ME_APPROVE_PROPOSAL;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_APPROVE_PROPOSAL);
     case 2049: /* module 8 call 1 */
-        return STR_ME_AS_DERIVATIVE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_AS_DERIVATIVE);
     case 9728: /* module 38 call 0 */
-        return STR_ME_ADD_REGISTRAR;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_ADD_REGISTRAR);
     case 9729: /* module 38 call 1 */
-        return STR_ME_SET_IDENTITY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_IDENTITY);
     case 9730: /* module 38 call 2 */
-        return STR_ME_SET_SUBS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_SUBS);
     case 9731: /* module 38 call 3 */
-        return STR_ME_CLEAR_IDENTITY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLEAR_IDENTITY);
     case 9732: /* module 38 call 4 */
-        return STR_ME_REQUEST_JUDGEMENT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REQUEST_JUDGEMENT);
     case 9733: /* module 38 call 5 */
-        return STR_ME_CANCEL_REQUEST;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CANCEL_REQUEST);
     case 9734: /* module 38 call 6 */
-        return STR_ME_SET_FEE;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_FEE);
     case 9735: /* module 38 call 7 */
-        return STR_ME_SET_ACCOUNT_ID;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_ACCOUNT_ID);
     case 9736: /* module 38 call 8 */
-        return STR_ME_SET_FIELDS;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SET_FIELDS);
     case 9737: /* module 38 call 9 */
-        return STR_ME_PROVIDE_JUDGEMENT;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROVIDE_JUDGEMENT);
     case 9738: /* module 38 call 10 */
-        return STR_ME_KILL_IDENTITY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_KILL_IDENTITY);
     case 9739: /* module 38 call 11 */
-        return STR_ME_ADD_SUB;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_ADD_SUB);
     case 9740: /* module 38 call 12 */
-        return STR_ME_RENAME_SUB;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_RENAME_SUB);
     case 9741: /* module 38 call 13 */
-        return STR_ME_REMOVE_SUB;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REMOVE_SUB);
     case 9742: /* module 38 call 14 */
-        return STR_ME_QUIT_SUB;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_QUIT_SUB);
     case 8704: /* module 34 call 0 */
-        return STR_ME_PROPOSE_BOUNTY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE_BOUNTY);
     case 8705: /* module 34 call 1 */
-        return STR_ME_APPROVE_BOUNTY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_APPROVE_BOUNTY);
     case 8706: /* module 34 call 2 */
-        return STR_ME_PROPOSE_CURATOR;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_PROPOSE_CURATOR);
     case 8707: /* module 34 call 3 */
-        return STR_ME_UNASSIGN_CURATOR;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_UNASSIGN_CURATOR);
     case 8708: /* module 34 call 4 */
-        return STR_ME_ACCEPT_CURATOR;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_ACCEPT_CURATOR);
     case 8709: /* module 34 call 5 */
-        return STR_ME_AWARD_BOUNTY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_AWARD_BOUNTY);
     case 8710: /* module 34 call 6 */
-        return STR_ME_CLAIM_BOUNTY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLAIM_BOUNTY);
     case 8711: /* module 34 call 7 */
-        return STR_ME_CLOSE_BOUNTY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLOSE_BOUNTY);
     case 8712: /* module 34 call 8 */
-        return STR_ME_EXTEND_BOUNTY_EXPIRY;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_EXTEND_BOUNTY_EXPIRY);
     case 9472: /* module 37 call 0 */
-        return STR_ME_REPORT_AWESOME;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_REPORT_AWESOME);
     case 9473: /* module 37 call 1 */
-        return STR_ME_RETRACT_TIP;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_RETRACT_TIP);
     case 9474: /* module 37 call 2 */
-        return STR_ME_TIP_NEW;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_TIP_NEW);
     case 9475: /* module 37 call 3 */
-        return STR_ME_TIP;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_TIP);
     case 9476: /* module 37 call 4 */
-        return STR_ME_CLOSE_TIP;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_CLOSE_TIP);
     case 9477: /* module 37 call 5 */
-        return STR_ME_SLASH_TIP;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SLASH_TIP);
     case 7936: /* module 31 call 0 */
-        return STR_ME_SUBMIT_UNSIGNED;
+        SET_POINTER_AND_BREAK(methodName, STR_ME_SUBMIT_UNSIGNED);
 #endif
     default:
-        return NULL;
+        return parser_unexpected_call;
     }
 
-    return NULL;
+    return parser_ok;
 }
 
 // For number of arguments of extrinsic (exclude `origin`).
@@ -2211,7 +2211,7 @@ parser_error_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_
 }
 
 // Return argument names of extrinsics given module index, extrinsic index and argument index
-const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx)
+parser_error_t _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx, const char* itemName)
 {
     uint16_t callPrivIdx = ((uint16_t)moduleIdx << 8u) + callIdx;
 
@@ -2219,1455 +2219,1183 @@ const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t i
     case 512: /* module 2 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_dest;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_dest);
         case 1:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 515: /* module 2 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_dest;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_dest);
         case 1:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7680: /* module 30 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_controller;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_controller);
         case 1:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         case 2:
-            return STR_IT_payee;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_payee);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7681: /* module 30 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_max_additional;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_max_additional);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7682: /* module 30 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7683: /* module 30 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_num_slashing_spans;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_num_slashing_spans);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7684: /* module 30 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_prefs;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_prefs);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7685: /* module 30 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_targets;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_targets);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7686: /* module 30 call 6 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7687: /* module 30 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_payee;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_payee);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7698: /* module 30 call 18 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_validator_stash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_validator_stash);
         case 1:
-            return STR_IT_era;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_era);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7699: /* module 30 call 19 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 768: /* module 3 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_keys;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_keys);
         case 1:
-            return STR_IT_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proof);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 769: /* module 3 call 1 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 2048: /* module 8 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_calls;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_calls);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 2050: /* module 8 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_calls;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_calls);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT__ratio;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__ratio);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 1: /* module 0 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT__remark;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__remark);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 2: /* module 0 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_pages;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_pages);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 3: /* module 0 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_code;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_code);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4: /* module 0 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_code;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_code);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5: /* module 0 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_changes_trie_config;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_changes_trie_config);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 6: /* module 0 call 6 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_items;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_items);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7: /* module 0 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_keys;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_keys);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8: /* module 0 call 8 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_prefix;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_prefix);
         case 1:
-            return STR_IT__subkeys;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__subkeys);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5376: /* module 21 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_when;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_when);
         case 1:
-            return STR_IT_maybe_periodic;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_maybe_periodic);
         case 2:
-            return STR_IT_priority;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_priority);
         case 3:
-            return STR_IT_call;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_call);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5377: /* module 21 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_when;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_when);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5378: /* module 21 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_id);
         case 1:
-            return STR_IT_when;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_when);
         case 2:
-            return STR_IT_maybe_periodic;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_maybe_periodic);
         case 3:
-            return STR_IT_priority;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_priority);
         case 4:
-            return STR_IT_call;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_call);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5379: /* module 21 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5380: /* module 21 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_after;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_after);
         case 1:
-            return STR_IT_maybe_periodic;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_maybe_periodic);
         case 2:
-            return STR_IT_priority;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_priority);
         case 3:
-            return STR_IT_call;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_call);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5381: /* module 21 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_id);
         case 1:
-            return STR_IT_after;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_after);
         case 2:
-            return STR_IT_maybe_periodic;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_maybe_periodic);
         case 3:
-            return STR_IT_priority;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_priority);
         case 4:
-            return STR_IT_call;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_call);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7424: /* module 29 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_equivocation_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_equivocation_proof);
         case 1:
-            return STR_IT_key_owner_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_key_owner_proof);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7425: /* module 29 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_equivocation_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_equivocation_proof);
         case 1:
-            return STR_IT_key_owner_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_key_owner_proof);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7426: /* module 29 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_now;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_now);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
-    /*case 1024: *//* module 4 call 0 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1025: *//* module 4 call 1 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_new_;
-        case 1:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1026: *//* module 4 call 2 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 1027: *//* module 4 call 3 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_new_;
-        case 1:
-            return STR_IT_index;
-        case 2:
-            return STR_IT_freeze;
-        default:
-            return NULL;
-        }
-    case 1028: *//* module 4 call 4 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }*/
     case 513: /* module 2 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         case 1:
-            return STR_IT_new_free;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_free);
         case 2:
-            return STR_IT_new_reserved;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_reserved);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 514: /* module 2 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_source;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_source);
         case 1:
-            return STR_IT_dest;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_dest);
         case 2:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 1536: /* module 6 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_uncles;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_uncles);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7688: /* module 30 call 8 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_controller;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_controller);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7689: /* module 30 call 9 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7690: /* module 30 call 10 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_additional;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_additional);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7691: /* module 30 call 11 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_factor;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_factor);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7692: /* module 30 call 12 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7693: /* module 30 call 13 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7694: /* module 30 call 14 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_invulnerables;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_invulnerables);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7695: /* module 30 call 15 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_stash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_stash);
         case 1:
-            return STR_IT_num_slashing_spans;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_num_slashing_spans);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7696: /* module 30 call 16 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7697: /* module 30 call 17 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_era;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_era);
         case 1:
-            return STR_IT_slash_indices;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_slash_indices);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7700: /* module 30 call 20 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_history_depth;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_history_depth);
         case 1:
-            return STR_IT__era_items_deleted;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__era_items_deleted);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7701: /* module 30 call 21 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_stash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_stash);
         case 1:
-            return STR_IT_num_slashing_spans;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_num_slashing_spans);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7702: /* module 30 call 22 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_winners;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_winners);
         case 1:
-            return STR_IT_compact;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_compact);
         case 2:
-            return STR_IT_score;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_score);
         case 3:
-            return STR_IT_era;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_era);
         case 4:
-            return STR_IT_size;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_size);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7703: /* module 30 call 23 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_winners;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_winners);
         case 1:
-            return STR_IT_compact;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_compact);
         case 2:
-            return STR_IT_score;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_score);
         case 3:
-            return STR_IT_era;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_era);
         case 4:
-            return STR_IT_size;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_size);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7704: /* module 30 call 24 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 1280: /* module 5 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_equivocation_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_equivocation_proof);
         case 1:
-            return STR_IT_key_owner_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_key_owner_proof);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 1281: /* module 5 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_equivocation_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_equivocation_proof);
         case 1:
-            return STR_IT_key_owner_proof;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_key_owner_proof);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 1282: /* module 5 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_delay;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_delay);
         case 1:
-            return STR_IT_best_finalized_block_number;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_best_finalized_block_number);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7168: /* module 28 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_heartbeat;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_heartbeat);
         case 1:
-            return STR_IT__signature;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__signature);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4352: /* module 17 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4353: /* module 17 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 1:
-            return STR_IT_seconds_upper_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_seconds_upper_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4354: /* module 17 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_ref_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_ref_index);
         case 1:
-            return STR_IT_vote;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_vote);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4355: /* module 17 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_ref_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_ref_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4356: /* module 17 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4357: /* module 17 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4358: /* module 17 call 6 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4359: /* module 17 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_voting_period;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_voting_period);
         case 2:
-            return STR_IT_delay;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_delay);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4360: /* module 17 call 8 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4361: /* module 17 call 9 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_ref_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_ref_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4362: /* module 17 call 10 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_which;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_which);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4363: /* module 17 call 11 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_to;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_to);
         case 1:
-            return STR_IT_conviction;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_conviction);
         case 2:
-            return STR_IT_balance;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_balance);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4364: /* module 17 call 12 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4365: /* module 17 call 13 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4366: /* module 17 call 14 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_encoded_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_encoded_proposal);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4367: /* module 17 call 15 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_encoded_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_encoded_proposal);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4368: /* module 17 call 16 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_encoded_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_encoded_proposal);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4369: /* module 17 call 17 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_encoded_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_encoded_proposal);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4370: /* module 17 call 18 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_proposal_len_upper_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_len_upper_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4371: /* module 17 call 19 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_target;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_target);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4372: /* module 17 call 20 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4373: /* module 17 call 21 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_target;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_target);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4374: /* module 17 call 22 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4375: /* module 17 call 23 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_maybe_ref_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_maybe_ref_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4376: /* module 17 call 24 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_prop_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_prop_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4608: /* module 18 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_members;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_members);
         case 1:
-            return STR_IT_prime;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_prime);
         case 2:
-            return STR_IT_old_count;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_old_count);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4609: /* module 18 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 1:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4610: /* module 18 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_threshold;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_threshold);
         case 1:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 2:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4611: /* module 18 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 2:
-            return STR_IT_approve;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_approve);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4612: /* module 18 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 2:
-            return STR_IT_proposal_weight_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_weight_bound);
         case 3:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4613: /* module 18 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4864: /* module 19 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_members;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_members);
         case 1:
-            return STR_IT_prime;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_prime);
         case 2:
-            return STR_IT_old_count;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_old_count);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4865: /* module 19 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 1:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4866: /* module 19 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_threshold;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_threshold);
         case 1:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 2:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4867: /* module 19 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 2:
-            return STR_IT_approve;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_approve);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4868: /* module 19 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         case 1:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 2:
-            return STR_IT_proposal_weight_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_weight_bound);
         case 3:
-            return STR_IT_length_bound;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_length_bound);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 4869: /* module 19 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9216: /* module 36 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_votes;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_votes);
         case 1:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9217: /* module 36 call 1 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9218: /* module 36 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_candidate_count;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_candidate_count);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9219: /* module 36 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_renouncing;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_renouncing);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9220: /* module 36 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         case 1:
-            return STR_IT_has_replacement;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_has_replacement);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9221: /* module 36 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT__num_voters;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__num_voters);
         case 1:
-            return STR_IT__num_defunct;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__num_defunct);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5120: /* module 20 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5121: /* module 20 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5122: /* module 20 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_remove;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_remove);
         case 1:
-            return STR_IT_add;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_add);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5123: /* module 20 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_members;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_members);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5124: /* module 20 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_new_;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5125: /* module 20 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 5126: /* module 20 call 6 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8448: /* module 33 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         case 1:
-            return STR_IT_beneficiary;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_beneficiary);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8449: /* module 33 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8450: /* module 33 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_proposal_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_proposal_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     /*case 6144: *//* module 24 call 0 *//*
         switch (itemIdx) {
         case 0:
-            return STR_IT_dest;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_dest);
         case 1:
-            return STR_IT_ethereum_signature;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_ethereum_signature);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
-    case 6145: *//* module 24 call 1 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_who;
-        case 1:
-            return STR_IT_value;
-        case 2:
-            return STR_IT_vesting_schedule;
-        case 3:
-            return STR_IT_statement;
-        default:
-            return NULL;
-        }
-    case 6146: *//* module 24 call 2 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_dest;
-        case 1:
-            return STR_IT_ethereum_signature;
-        case 2:
-            return STR_IT_statement;
-        default:
-            return NULL;
-        }
-    case 6147: *//* module 24 call 3 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_statement;
-        default:
-            return NULL;
-        }
-    case 6148: *//* module 24 call 4 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_old;
-        case 1:
-            return STR_IT_new_;
-        case 2:
-            return STR_IT_maybe_preclaim;
-        default:
-            return NULL;
-        }
-    case 6400: *//* module 25 call 0 *//*
-        switch (itemIdx) {
-        default:
-            return NULL;
-        }
-    case 6401: *//* module 25 call 1 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_target;
-        default:
-            return NULL;
-        }
-    case 6402: *//* module 25 call 2 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_target;
-        case 1:
-            return STR_IT_schedule;
-        default:
-            return NULL;
-        }
-    case 6403: *//* module 25 call 3 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_source;
-        case 1:
-            return STR_IT_target;
-        case 2:
-            return STR_IT_schedule;
-        default:
-            return NULL;
-        }*/
+    */
     case 2049: /* module 8 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 1:
-            return STR_IT_call;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_call);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9728: /* module 38 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_account;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_account);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9729: /* module 38 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_info;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_info);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9730: /* module 38 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_subs;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_subs);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9731: /* module 38 call 3 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9732: /* module 38 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_reg_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_reg_index);
         case 1:
-            return STR_IT_max_fee;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_max_fee);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9733: /* module 38 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_reg_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_reg_index);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9734: /* module 38 call 6 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 1:
-            return STR_IT_fee;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_fee);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9735: /* module 38 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 1:
-            return STR_IT_new_;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_new_);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9736: /* module 38 call 8 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_index);
         case 1:
-            return STR_IT_fields;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_fields);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9737: /* module 38 call 9 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_reg_index;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_reg_index);
         case 1:
-            return STR_IT_target;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_target);
         case 2:
-            return STR_IT_judgement;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_judgement);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9738: /* module 38 call 10 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_target;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_target);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9739: /* module 38 call 11 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_sub;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_sub);
         case 1:
-            return STR_IT_data;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_data);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9740: /* module 38 call 12 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_sub;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_sub);
         case 1:
-            return STR_IT_data;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_data);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9741: /* module 38 call 13 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_sub;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_sub);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9742: /* module 38 call 14 */
         switch (itemIdx) {
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
-    /*case 7424: *//* module 29 call 0 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_real;
-        case 1:
-            return STR_IT_force_proxy_type;
-        case 2:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7425: *//* module 29 call 1 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_delay;
-        default:
-            return NULL;
-        }
-    case 7426: *//* module 29 call 2 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_delay;
-        default:
-            return NULL;
-        }
-    case 7427: *//* module 29 call 3 *//*
-        switch (itemIdx) {
-        default:
-            return NULL;
-        }
-    case 7428: *//* module 29 call 4 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_proxy_type;
-        case 1:
-            return STR_IT_delay;
-        case 2:
-            return STR_IT_index;
-        default:
-            return NULL;
-        }
-    case 7429: *//* module 29 call 5 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_spawner;
-        case 1:
-            return STR_IT_proxy_type;
-        case 2:
-            return STR_IT_index;
-        case 3:
-            return STR_IT_height;
-        case 4:
-            return STR_IT_ext_index;
-        default:
-            return NULL;
-        }
-    case 7430: *//* module 29 call 6 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_real;
-        case 1:
-            return STR_IT_call_hash;
-        default:
-            return NULL;
-        }
-    case 7431: *//* module 29 call 7 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_real;
-        case 1:
-            return STR_IT_call_hash;
-        default:
-            return NULL;
-        }
-    case 7432: *//* module 29 call 8 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_call_hash;
-        default:
-            return NULL;
-        }
-    case 7433: *//* module 29 call 9 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_delegate;
-        case 1:
-            return STR_IT_real;
-        case 2:
-            return STR_IT_force_proxy_type;
-        case 3:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7680: *//* module 30 call 0 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_other_signatories;
-        case 1:
-            return STR_IT_call;
-        default:
-            return NULL;
-        }
-    case 7681: *//* module 30 call 1 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_maybe_timepoint;
-        case 3:
-            return STR_IT_call;
-        case 4:
-            return STR_IT_store_call;
-        case 5:
-            return STR_IT_max_weight;
-        default:
-            return NULL;
-        }
-    case 7682: *//* module 30 call 2 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_maybe_timepoint;
-        case 3:
-            return STR_IT_call_hash;
-        case 4:
-            return STR_IT_max_weight;
-        default:
-            return NULL;
-        }
-    case 7683: *//* module 30 call 3 *//*
-        switch (itemIdx) {
-        case 0:
-            return STR_IT_threshold;
-        case 1:
-            return STR_IT_other_signatories;
-        case 2:
-            return STR_IT_timepoint;
-        case 3:
-            return STR_IT_call_hash;
-        default:
-            return NULL;
-        }*/
     case 8704: /* module 34 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_value);
         case 1:
-            return STR_IT_description;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_description);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8705: /* module 34 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8706: /* module 34 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         case 1:
-            return STR_IT_curator;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_curator);
         case 2:
-            return STR_IT_fee;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_fee);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8707: /* module 34 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8708: /* module 34 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8709: /* module 34 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         case 1:
-            return STR_IT_beneficiary;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_beneficiary);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8710: /* module 34 call 6 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8711: /* module 34 call 7 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 8712: /* module 34 call 8 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_bounty_id;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_bounty_id);
         case 1:
-            return STR_IT__remark;
+            SET_POINTER_AND_BREAK(itemName, STR_IT__remark);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9472: /* module 37 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_reason;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_reason);
         case 1:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9473: /* module 37 call 1 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9474: /* module 37 call 2 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_reason;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_reason);
         case 1:
-            return STR_IT_who;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_who);
         case 2:
-            return STR_IT_tip_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_tip_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9475: /* module 37 call 3 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_hash);
         case 1:
-            return STR_IT_tip_value;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_tip_value);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9476: /* module 37 call 4 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 9477: /* module 37 call 5 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_hash;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_hash);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
     case 7936: /* module 31 call 0 */
         switch (itemIdx) {
         case 0:
-            return STR_IT_solution;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_solution);
         case 1:
-            return STR_IT_witness;
+            SET_POINTER_AND_BREAK(itemName, STR_IT_witness);
         default:
-            return NULL;
+            return parser_unexpected_itemIndex;
         }
 #endif
     default:
-        return NULL;
+        return parser_unexpected_callIndex;
     }
 
-    return NULL;
+    return parser_ok;
 }
 
 parser_error_t _getMethod_ItemValue_V1(
@@ -3692,7 +3420,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 515: /* module 2 call 3 */
         switch (itemIdx) {
@@ -3707,7 +3435,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7680: /* module 30 call 0 */
         switch (itemIdx) {
@@ -3727,7 +3455,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7681: /* module 30 call 1 */
         switch (itemIdx) {
@@ -3737,7 +3465,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7682: /* module 30 call 2 */
         switch (itemIdx) {
@@ -3747,7 +3475,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7683: /* module 30 call 3 */
         switch (itemIdx) {
@@ -3757,7 +3485,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7684: /* module 30 call 4 */
         switch (itemIdx) {
@@ -3767,7 +3495,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7685: /* module 30 call 5 */
         switch (itemIdx) {
@@ -3777,12 +3505,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7686: /* module 30 call 6 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7687: /* module 30 call 7 */
         switch (itemIdx) {
@@ -3792,7 +3520,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7698: /* module 30 call 18 */
         switch (itemIdx) {
@@ -3807,7 +3535,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7699: /* module 30 call 19 */
         switch (itemIdx) {
@@ -3817,7 +3545,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 768: /* module 3 call 0 */
         switch (itemIdx) {
@@ -3832,12 +3560,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 769: /* module 3 call 1 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 2048: /* module 8 call 0 */
         switch (itemIdx) {
@@ -3847,7 +3575,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 2050: /* module 8 call 2 */
         switch (itemIdx) {
@@ -3857,7 +3585,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
 #ifdef SUBSTRATE_PARSER_FULL
     case 0: /* module 0 call 0 */
@@ -3868,7 +3596,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 1: /* module 0 call 1 */
         switch (itemIdx) {
@@ -3878,7 +3606,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 2: /* module 0 call 2 */
         switch (itemIdx) {
@@ -3888,7 +3616,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 3: /* module 0 call 3 */
         switch (itemIdx) {
@@ -3898,7 +3626,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4: /* module 0 call 4 */
         switch (itemIdx) {
@@ -3908,7 +3636,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5: /* module 0 call 5 */
         switch (itemIdx) {
@@ -3918,7 +3646,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 6: /* module 0 call 6 */
         switch (itemIdx) {
@@ -3928,7 +3656,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7: /* module 0 call 7 */
         switch (itemIdx) {
@@ -3938,7 +3666,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8: /* module 0 call 8 */
         switch (itemIdx) {
@@ -3953,7 +3681,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9: /* module 0 call 9 */
         switch (itemIdx) {
@@ -3963,7 +3691,7 @@ parser_error_t _getMethod_ItemValue_V1(
                     outValue, outValueLen,
                     pageIdx, pageCount);
             default:
-                return parser_no_data;
+                return parser_unexpected_itemIndex;
         }
     case 5376: /* module 21 call 0 */
         switch (itemIdx) {
@@ -3988,7 +3716,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5377: /* module 21 call 1 */
         switch (itemIdx) {
@@ -4003,7 +3731,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5378: /* module 21 call 2 */
         switch (itemIdx) {
@@ -4033,7 +3761,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5379: /* module 21 call 3 */
         switch (itemIdx) {
@@ -4043,7 +3771,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5380: /* module 21 call 4 */
         switch (itemIdx) {
@@ -4068,7 +3796,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5381: /* module 21 call 5 */
         switch (itemIdx) {
@@ -4098,7 +3826,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7424: /* module 29 call 0 */
         switch (itemIdx) {
@@ -4113,7 +3841,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7425: /* module 29 call 1 */
         switch (itemIdx) {
@@ -4128,7 +3856,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 256: /* module 1 call 0 */
         switch (itemIdx) {
@@ -4138,7 +3866,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 513: /* module 2 call 1 */
         switch (itemIdx) {
@@ -4158,7 +3886,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 514: /* module 2 call 2 */
         switch (itemIdx) {
@@ -4178,7 +3906,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 1536: /* module 6 call 0 */
         switch (itemIdx) {
@@ -4188,7 +3916,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7688: /* module 30 call 8 */
         switch (itemIdx) {
@@ -4198,7 +3926,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7689: /* module 30 call 9 */
         switch (itemIdx) {
@@ -4208,7 +3936,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7690: /* module 30 call 10 */
         switch (itemIdx) {
@@ -4218,7 +3946,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7691: /* module 30 call 11 */
         switch (itemIdx) {
@@ -4228,17 +3956,17 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7692: /* module 30 call 12 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7693: /* module 30 call 13 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7694: /* module 30 call 14 */
         switch (itemIdx) {
@@ -4248,7 +3976,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7695: /* module 30 call 15 */
         switch (itemIdx) {
@@ -4263,12 +3991,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7696: /* module 30 call 16 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7697: /* module 30 call 17 */
         switch (itemIdx) {
@@ -4283,7 +4011,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7700: /* module 30 call 20 */
         switch (itemIdx) {
@@ -4298,7 +4026,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7701: /* module 30 call 21 */
         switch (itemIdx) {
@@ -4313,7 +4041,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7702: /* module 30 call 22 */
         switch (itemIdx) {
@@ -4343,7 +4071,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7703: /* module 30 call 23 */
         switch (itemIdx) {
@@ -4373,7 +4101,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7704: /* module 30 call 24 */
         switch (itemIdx) {
@@ -4383,7 +4111,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 1280: /* module 5 call 0 */
         switch (itemIdx) {
@@ -4398,7 +4126,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 1281: /* module 5 call 1 */
         switch (itemIdx) {
@@ -4413,7 +4141,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 1282: /* module 5 call 2 */
         switch (itemIdx) {
@@ -4428,7 +4156,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7168: /* module 28 call 0 */
         switch (itemIdx) {
@@ -4443,7 +4171,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4352: /* module 17 call 0 */
         switch (itemIdx) {
@@ -4458,7 +4186,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4353: /* module 17 call 1 */
         switch (itemIdx) {
@@ -4473,7 +4201,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4354: /* module 17 call 2 */
         switch (itemIdx) {
@@ -4488,7 +4216,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4355: /* module 17 call 3 */
         switch (itemIdx) {
@@ -4498,7 +4226,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4356: /* module 17 call 4 */
         switch (itemIdx) {
@@ -4508,7 +4236,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4357: /* module 17 call 5 */
         switch (itemIdx) {
@@ -4518,7 +4246,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4358: /* module 17 call 6 */
         switch (itemIdx) {
@@ -4528,7 +4256,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4359: /* module 17 call 7 */
         switch (itemIdx) {
@@ -4548,7 +4276,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4360: /* module 17 call 8 */
         switch (itemIdx) {
@@ -4558,7 +4286,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4361: /* module 17 call 9 */
         switch (itemIdx) {
@@ -4568,7 +4296,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4362: /* module 17 call 10 */
         switch (itemIdx) {
@@ -4578,7 +4306,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4363: /* module 17 call 11 */
         switch (itemIdx) {
@@ -4598,17 +4326,17 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4364: /* module 17 call 12 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4365: /* module 17 call 13 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4366: /* module 17 call 14 */
         switch (itemIdx) {
@@ -4618,7 +4346,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4367: /* module 17 call 15 */
         switch (itemIdx) {
@@ -4628,7 +4356,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4368: /* module 17 call 16 */
         switch (itemIdx) {
@@ -4638,7 +4366,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4369: /* module 17 call 17 */
         switch (itemIdx) {
@@ -4648,7 +4376,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4370: /* module 17 call 18 */
         switch (itemIdx) {
@@ -4663,7 +4391,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4371: /* module 17 call 19 */
         switch (itemIdx) {
@@ -4673,7 +4401,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4372: /* module 17 call 20 */
         switch (itemIdx) {
@@ -4683,7 +4411,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4373: /* module 17 call 21 */
         switch (itemIdx) {
@@ -4698,7 +4426,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4374: /* module 17 call 22 */
         switch (itemIdx) {
@@ -4713,7 +4441,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4375: /* module 17 call 23 */
         switch (itemIdx) {
@@ -4728,7 +4456,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4376: /* module 17 call 24 */
         switch (itemIdx) {
@@ -4738,7 +4466,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4608: /* module 18 call 0 */
         switch (itemIdx) {
@@ -4758,7 +4486,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4609: /* module 18 call 1 */
         switch (itemIdx) {
@@ -4773,7 +4501,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4610: /* module 18 call 2 */
         switch (itemIdx) {
@@ -4793,7 +4521,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4611: /* module 18 call 3 */
         switch (itemIdx) {
@@ -4813,7 +4541,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4612: /* module 18 call 4 */
         switch (itemIdx) {
@@ -4838,7 +4566,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4613: /* module 18 call 5 */
         switch (itemIdx) {
@@ -4848,7 +4576,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4864: /* module 19 call 0 */
         switch (itemIdx) {
@@ -4868,7 +4596,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4865: /* module 19 call 1 */
         switch (itemIdx) {
@@ -4883,7 +4611,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4866: /* module 19 call 2 */
         switch (itemIdx) {
@@ -4903,7 +4631,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4867: /* module 19 call 3 */
         switch (itemIdx) {
@@ -4923,7 +4651,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4868: /* module 19 call 4 */
         switch (itemIdx) {
@@ -4948,7 +4676,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 4869: /* module 19 call 5 */
         switch (itemIdx) {
@@ -4958,7 +4686,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9216: /* module 36 call 0 */
         switch (itemIdx) {
@@ -4973,12 +4701,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9217: /* module 36 call 1 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9218: /* module 36 call 2 */
         switch (itemIdx) {
@@ -4988,7 +4716,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9219: /* module 36 call 3 */
         switch (itemIdx) {
@@ -4998,7 +4726,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9220: /* module 36 call 4 */
         switch (itemIdx) {
@@ -5013,7 +4741,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9221: /* module 36 call 5 */
         switch (itemIdx) {
@@ -5028,7 +4756,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5120: /* module 20 call 0 */
         switch (itemIdx) {
@@ -5038,7 +4766,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5121: /* module 20 call 1 */
         switch (itemIdx) {
@@ -5048,7 +4776,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5122: /* module 20 call 2 */
         switch (itemIdx) {
@@ -5063,7 +4791,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5123: /* module 20 call 3 */
         switch (itemIdx) {
@@ -5073,7 +4801,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5124: /* module 20 call 4 */
         switch (itemIdx) {
@@ -5083,7 +4811,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5125: /* module 20 call 5 */
         switch (itemIdx) {
@@ -5093,12 +4821,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 5126: /* module 20 call 6 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8448: /* module 33 call 0 */
         switch (itemIdx) {
@@ -5113,7 +4841,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8449: /* module 33 call 1 */
         switch (itemIdx) {
@@ -5123,7 +4851,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8450: /* module 33 call 2 */
         switch (itemIdx) {
@@ -5133,7 +4861,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 2049: /* module 8 call 1 */
         switch (itemIdx) {
@@ -5148,7 +4876,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9728: /* module 38 call 0 */
         switch (itemIdx) {
@@ -5158,7 +4886,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9729: /* module 38 call 1 */
         switch (itemIdx) {
@@ -5168,7 +4896,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9730: /* module 38 call 2 */
         switch (itemIdx) {
@@ -5178,12 +4906,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9731: /* module 38 call 3 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9732: /* module 38 call 4 */
         switch (itemIdx) {
@@ -5198,7 +4926,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9733: /* module 38 call 5 */
         switch (itemIdx) {
@@ -5208,7 +4936,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9734: /* module 38 call 6 */
         switch (itemIdx) {
@@ -5223,7 +4951,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9735: /* module 38 call 7 */
         switch (itemIdx) {
@@ -5238,7 +4966,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9736: /* module 38 call 8 */
         switch (itemIdx) {
@@ -5253,7 +4981,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9737: /* module 38 call 9 */
         switch (itemIdx) {
@@ -5273,7 +5001,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9738: /* module 38 call 10 */
         switch (itemIdx) {
@@ -5283,7 +5011,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9739: /* module 38 call 11 */
         switch (itemIdx) {
@@ -5298,7 +5026,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9740: /* module 38 call 12 */
         switch (itemIdx) {
@@ -5313,7 +5041,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9741: /* module 38 call 13 */
         switch (itemIdx) {
@@ -5323,12 +5051,12 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9742: /* module 38 call 14 */
         switch (itemIdx) {
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8704: /* module 34 call 0 */
         switch (itemIdx) {
@@ -5343,7 +5071,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8705: /* module 34 call 1 */
         switch (itemIdx) {
@@ -5353,7 +5081,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8706: /* module 34 call 2 */
         switch (itemIdx) {
@@ -5373,7 +5101,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8707: /* module 34 call 3 */
         switch (itemIdx) {
@@ -5383,7 +5111,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8708: /* module 34 call 4 */
         switch (itemIdx) {
@@ -5393,7 +5121,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8709: /* module 34 call 5 */
         switch (itemIdx) {
@@ -5408,7 +5136,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8710: /* module 34 call 6 */
         switch (itemIdx) {
@@ -5418,7 +5146,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8711: /* module 34 call 7 */
         switch (itemIdx) {
@@ -5428,7 +5156,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 8712: /* module 34 call 8 */
         switch (itemIdx) {
@@ -5443,7 +5171,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9472: /* module 37 call 0 */
         switch (itemIdx) {
@@ -5458,7 +5186,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9473: /* module 37 call 1 */
         switch (itemIdx) {
@@ -5468,7 +5196,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9474: /* module 37 call 2 */
         switch (itemIdx) {
@@ -5488,7 +5216,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9475: /* module 37 call 3 */
         switch (itemIdx) {
@@ -5503,7 +5231,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9476: /* module 37 call 4 */
         switch (itemIdx) {
@@ -5513,7 +5241,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 9477: /* module 37 call 5 */
         switch (itemIdx) {
@@ -5523,7 +5251,7 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
     case 7936: /* module 31 call 0 */
         switch (itemIdx) {
@@ -5538,11 +5266,11 @@ parser_error_t _getMethod_ItemValue_V1(
                 outValue, outValueLen,
                 pageIdx, pageCount);
         default:
-            return parser_no_data;
+            return parser_unexpected_itemIndex;
         }
 #endif
     default:
-        return parser_ok;
+        return parser_unexpected_callIndex;
     }
 
     return parser_ok;

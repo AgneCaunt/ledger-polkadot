@@ -28,13 +28,13 @@ extern "C" {
 
 parser_error_t _readMethod_V1(parser_context_t* c, uint8_t moduleIdx, uint8_t callIdx, pd_Method_V1_t* method);
 
-const char* _getMethod_ModuleName_V1(uint8_t moduleIdx);
+parser_error_t _getMethod_ModuleName_V1(uint8_t moduleIdx, const char* moduleName);
 
-const char* _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx);
+parser_error_t _getMethod_Name_V1(uint8_t moduleIdx, uint8_t callIdx, const char* methodName);
 
-const char* _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx);
+parser_error_t _getMethod_ItemName_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx, const char* itemName);
 
-uint8_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t* numItems);
+parser_error_t _getMethod_NumItems_V1(uint8_t moduleIdx, uint8_t callIdx, uint8_t* numItems);
 
 parser_error_t _getMethod_ItemValue_V1(
     pd_Method_V1_t* m, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx,

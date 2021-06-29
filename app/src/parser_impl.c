@@ -78,8 +78,12 @@ const char *parser_getErrorDescription(parser_error_t err) {
             return "Value too many bytes";
         case parser_unexpected_module:
             return "Unexpected module";
+        case parser_unexpected_call:
+            return "Unexpected call";
         case parser_unexpected_callIndex:
             return "Unexpected call index";
+        case parser_unexpected_itemIndex:
+            return "Unexpected function argument index";
         case parser_unexpected_unparsed_bytes:
             return "Unexpected unparsed bytes";
         case parser_print_not_supported:

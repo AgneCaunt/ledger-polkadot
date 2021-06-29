@@ -39,38 +39,37 @@ parser_error_t _getMethod_NumItems(uint32_t transactionVersion, uint8_t moduleId
     case 1:
         return _getMethod_NumItems_V1(moduleIdx, callIdx, numItems);
     default:
-        // TODO: This isn't correct. A mutable argument should be expected and error value should be checked of this function
         return parser_tx_version_not_supported;
     }
 }
 
-const char* _getMethod_ModuleName(uint32_t transactionVersion, uint8_t moduleIdx)
+parser_error_t _getMethod_ModuleName(uint32_t transactionVersion, uint8_t moduleIdx, const char* moduleName)
 {
     switch (transactionVersion) {
     case 1:
-        return _getMethod_ModuleName_V1(moduleIdx);
+        return _getMethod_ModuleName_V1(moduleIdx, moduleName);
     default:
-        return NULL;
+        return parser_tx_version_not_supported;
     }
 }
 
-const char* _getMethod_Name(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx)
+parser_error_t _getMethod_Name(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, const char* methodName)
 {
     switch (transactionVersion) {
     case 1:
-        return _getMethod_Name_V1(moduleIdx, callIdx);
+        return _getMethod_Name_V1(moduleIdx, callIdx, methodName);
     default:
-        return 0;
+        return parser_tx_version_not_supported;
     }
 }
 
-const char* _getMethod_ItemName(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx)
+parser_error_t _getMethod_ItemName(uint32_t transactionVersion, uint8_t moduleIdx, uint8_t callIdx, uint8_t itemIdx, const char* itemName)
 {
     switch (transactionVersion) {
     case 1:
-        return _getMethod_ItemName_V1(moduleIdx, callIdx, itemIdx);
+        return _getMethod_ItemName_V1(moduleIdx, callIdx, itemIdx, itemName);
     default:
-        return NULL;
+        return parser_tx_version_not_supported;
     }
 }
 

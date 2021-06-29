@@ -49,6 +49,7 @@ typedef enum {
     parser_unexpected_module,
     parser_unexpected_callIndex,
     parser_unexpected_call,
+    parser_unexpected_itemIndex,    // Item means function argument here
     parser_unexpected_unparsed_bytes,
     parser_print_not_supported,
     parser_tx_nesting_not_supported,
