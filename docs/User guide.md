@@ -3,7 +3,7 @@
 ## Introduction
 
 The app is used to manage Dock's native tokens. The app can be used to transfer tokens, stake tokens as a validator or 
-nominator and participate in governance by voting. The explorer is available [here](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io#/explorer). We recommend using Ledger vs paper or browser wallet to individuals with a substantial amount of tokens. For any queries, send us an email at support.dock.io.
+nominator and participate in governance by voting. The explorer is available [here](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io#/explorer). We recommend using Ledger vs paper or browser wallet to individuals with a substantial amount of tokens. For any queries, send us an email at support.dock.io.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ nominator and participate in governance by voting. The explorer is available [he
   - [Nano S](https://support.ledger.com/hc/en-us/articles/360002731113-Update-Ledger-Nano-S-firmware?docs=true)
   - [Nano X](https://support.ledger.com/hc/en-us/articles/360013349800-Update-Ledger-Nano-X-firmware?docs=true)
 - Ledger Live is [ready to use](https://support.ledger.com/hc/en-us/articles/360006395233-Take-your-first-steps).
-- A web-browser is installed. We have tested with Google Chrome and Firefox.
+- A web-browser is installed. We have tested with Google Chrome and Brave. Firefox is known not to support it due to lack of support for WebUSB.
 
 ## App Installation
 
@@ -29,13 +29,13 @@ nominator and participate in governance by voting. The explorer is available [he
 
 ## Connecting to the web-app
 
-To use any feature of the app, it first needs to be connected to [our webapp](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io). Below are the instructions
+To use any feature of the app, it first needs to be connected to [our webapp](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io). Below are the instructions
 
 1. Connect your Ledger device and open.
-2. Go to [Settings tab of the webapp](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io#/settings).
+2. Go to [Settings tab of the webapp](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io#/settings).
 3. From the dropdown "manage hardware connections", select option "Attach Ledger via WebUSB" and click **Save** button on the bottom right as shown below
    ![setings](ledger-settings.png)
-4. To confirm that connection was successful, go to the [Accounts tab](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io#/accounts) and check whether **Add via Ledger** button is present on top-right of the page.
+4. To confirm that connection was successful, go to the [Accounts tab](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io#/accounts) and check whether **Add via Ledger** button is present on top-right of the page.
    ![Ledger connected](ledger-add-via.png)
 
 ## Accounts
@@ -45,7 +45,7 @@ This section describes how to add accounts or view existing accounts.
 ### Adding a new account
 
 1. Connect you Ledger device and open the Dock (or Dock XL) app. You will see text "Dock Ready"
-2. Go to the [accounts page](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io#/accounts) and click the **Add via Ledger** button.
+2. Go to the [accounts page](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io#/accounts) and click the **Add via Ledger** button.
 3. This will open a modal as show below. Enter a name for the account and select a derivation path. In the example below, I have given the account name as "Ledger 0 0" and 
 selected 0 for both derivation path
    ![add account modal](ledger-add-account.png)
@@ -57,7 +57,7 @@ selected 0 for both derivation path
 If you have an existing account and want to load in the webapp to its details like balance, the steps are same as those for adding new account. However, they are given below.
 
 1. Connect you Ledger device and open the Dock (or Dock XL) app. You will see text "Dock Ready"
-2. Go to the [accounts page](https://fe-staging.dock.io/?rpc=wss%3A%2F%2Fknox-1.dock.io#/accounts) and click the **Add via Ledger** button.
+2. Go to the [accounts page](https://fe.dock.io/?rpc=wss%3A%2F%2Fmainnet-node.dock.io#/accounts) and click the **Add via Ledger** button.
 3. This will open a modal as show below. Enter a name for the account and select the derivation paths you had chosen while creating the account. 
 In the example below, I have chosen name "My ledger" and both derivation paths as index 0.
    ![add existing account modal](ledger-add-existing.png)
